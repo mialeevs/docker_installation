@@ -46,9 +46,18 @@ sudo apt-get install -y docker-ce=5:20.10.7~3-0~ubuntu-$(lsb_release -cs)
 
 > Add user to docker group
 ```bash
-# Restart the machine once the user is addedd to the docker group
+# Restart the machine once the user is added to the docker group
 sudo usermod -aG docker $USER
 ```
+
+> Check the installation
+```bash
+
+# node:alpine image will download.
+docker pull node:alpine
+```
+
+
 
 ## Installation on CentOS 8 Operating System
 
@@ -128,8 +137,18 @@ sudo systemctl status docker
 
 ```
 
+
 > Add user to docker group
 ```bash
 
+# Restart the machine once the user is added to docker group
 sudo usermod -aG docker $USER
+```
+
+
+> Check the installation
+```bash
+
+# node:alpine image will be downloaded
+docker pull node:alpine
 ```
