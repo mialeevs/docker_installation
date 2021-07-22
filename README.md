@@ -44,6 +44,12 @@ sudo apt-get install -y docker-ce=5:20.10.7~3-0~ubuntu-$(lsb_release -cs)
 ```
 
 
+> Add user to docker group
+```bash
+# Restart the machine once the user is addedd to the docker group
+sudo usermod -aG docker $USER
+```
+
 ## Installation on CentOS 8 Operating System
 
 
@@ -54,6 +60,7 @@ sudo apt-get install -y docker-ce=5:20.10.7~3-0~ubuntu-$(lsb_release -cs)
 sudo yum install -y yum-utils
 
 ```
+
 
 ### Set up the Docker repository:
 
@@ -83,6 +90,7 @@ sudo yum install docker-ce docker-ce-cli containerd.io --nobest --allowerasing
 
 ```
 
+
 ### Start and enable the Docker service
 
 > Start docker
@@ -102,6 +110,7 @@ sudo systemctl enable docker
 
 ```
 
+
 > Disable docker start at boot
 
 ```bash
@@ -109,6 +118,7 @@ sudo systemctl enable docker
 sudo systemctl disable docker
 
 ```
+
 
 > Check docker service
 
@@ -118,3 +128,8 @@ sudo systemctl status docker
 
 ```
 
+> Add user to docker group
+```bash
+
+sudo usermod -aG docker $USER
+```
