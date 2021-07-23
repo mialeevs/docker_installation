@@ -13,7 +13,7 @@ Get the detailed information about the installation from the below-mentioned web
 
 ```bash
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 ```
 
@@ -39,8 +39,11 @@ sudo apt-get update
 
 ```bash
 
-sudo apt-get install -y docker-ce=5:20.10.7~3-0~ubuntu-$(lsb_release -cs)
+# Install a particular version
+sudo apt install -y docker-ce=5:20.10.7~3-0~ubuntu-$(lsb_release -cs)
 
+# Or install the latest version
+sudo apt install docker
 ```
 
 
