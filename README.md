@@ -13,7 +13,13 @@ Get the detailed information about the installation from the below-mentioned web
 
 ```bash
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+wget -O - https://download.docker.com/linux/ubuntu/gpg > ./docker.key
+
+gpg --no-default-keyring --keyring ./docker.gpg --import ./docker.key
+
+gpg --no-default-keyring --keyring ./docker.gpg --export > ./docker-archive-keyring.gpg
+
+sudo mv ./docker-archive-keyring.gpg /etc/apt/trusted.gpg.d/
 
 ```
 
