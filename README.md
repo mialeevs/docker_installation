@@ -49,7 +49,7 @@ sudo apt update
 sudo apt install -y docker-ce=5:20.10.7~3-0~ubuntu-$(lsb_release -cs)
 
 # Or install the latest version
-sudo apt install docker
+sudo apt install docker-ce
 ```
 
 
