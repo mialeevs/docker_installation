@@ -125,7 +125,7 @@ sudo usermod -aG docker $USER
 docker run hello-world
 ```
 
-## Installation on CentOS 8 Operating System
+## Installation on CentOS Operating System
 
 > Uninstall the old version
 ```bash
