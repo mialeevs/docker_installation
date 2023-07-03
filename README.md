@@ -67,9 +67,77 @@ docker pull node:alpine
 ```
 
 
+## Instalaltion on Fedora Operating System
+
+> Uninstall the old versions
+```bash
+sudo dnf remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+```
+
+### Setup the repository
+```bash
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+```
+
+### Install docker engine.
+```bash
+# Install the latest version
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Install a specific version
+dnf list docker-ce --showduplicates | sort -r
+```
+
+### Start the docker engine
+```bash
+# Start
+sudo systemctl start docker
+
+# Enable
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+
+```
+
+### Create a group for docker
+```bash
+# Create a group
+sudo groupadd docker
+
+# Add current user to docker group
+sudo usermod -aG docker $USER
+
+```
+
+### Run the hello-world sample app
+```bash
+docker run hello-world
+```
 
 ## Installation on CentOS 8 Operating System
 
+> Uninstall the old version
+```bash
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+```
 
 > Install the yum-utils package 
 
@@ -87,25 +155,13 @@ sudo yum install -y yum-utils
 ```bash
 
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
 ```
-
-
-> Update the repository
-
-```bash
-
-sudo yum update -y --nobest
-
-```
-
 
 > Install docker and containerd
 
 ```bash
 
-sudo yum install docker-ce docker-ce-cli containerd.io --nobest --allowerasing
-
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
 
@@ -158,6 +214,6 @@ sudo usermod -aG docker $USER
 > Check the installation
 ```bash
 
-# node:alpine image will be downloaded
-docker pull node:alpine
+# hello-world image will be downloaded
+docker run hello-world
 ```
